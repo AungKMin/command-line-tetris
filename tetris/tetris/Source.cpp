@@ -134,7 +134,7 @@ int main() {
 	std::size_t currentTopLeftX{playingFieldWidth / 2};
 	std::size_t currentTopLeftY{0};
 	// array of whether each key is pressed
-	bool keysArray[4]{};
+	bool keysArray[5]{};
 	// to fix rotate key being too reactive
 	bool rotateHold{false};
 	// how long until the piece is forced down (this simulates "gravity")
@@ -165,11 +165,11 @@ int main() {
 		std::cout << forceDown;
 
 		// -- input --
-		for (unsigned char k{}; k < 4; ++k) {                         
+		for (unsigned char k{}; k < 5; ++k) {                         
 			// \x25 is left arrow 
 			// \x27 isd right arrow
 			// \x28 is down arrow
-			keysArray[k] = ((0x8000 & GetAsyncKeyState((unsigned char)("\x25\x27\x28Z"[k]))) != 0);
+			keysArray[k] = ((0x8000 & GetAsyncKeyState((unsigned char)("\x25\x27\x28Z\x20"[k]))) != 0);
 		}
 
 		// -- logic --
